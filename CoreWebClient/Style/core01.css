@@ -1,0 +1,100 @@
+﻿body {font-weight: normal;font-family: Tahoma, Arial, sans-serif;text-decoration:none;font-size:11px;margin:0px;padding:0px;}
+TD{
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Tahoma, Arial, sans-serif; TEXT-DECORATION: none
+}
+TR {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Tahoma, Arial, sans-serif; TEXT-DECORATION: none
+}
+TABLE {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Tahoma, Arial, sans-serif; TEXT-DECORATION: none
+}
+
+p {text-align:justify}
+img {border:0px;}
+
+a {color:#4f75bb;text-decoration:none;font:8pt Tahoma;}
+a:hover{color:#4f75bb;text-decoration:underline;font:8pt Tahoma;}
+
+.btn {background:#d0d0d0;border:1px solid #11609b;font:8pt Tahoma;}
+.anp {text-align:justify}
+.textbox {color:Black;height:20px;font:8pt Tahoma;border:1px solid #666666;}
+.monitorTable {padding:0px;border-spacing:0px;width:200px;border-collapse:collapse;margin:25px 0 0 49px;}
+
+#headerimg {width:648px;height:166px;}
+#title {margin:0 0 0 300px;background-color:#7d9acb;padding:8px;height:14px;color:White;font-size:10pt;font-weight:bold;}
+#testingTitle {background-color:#7d9acb;padding:8px;height:14px;color:White;font-size:10pt;font-weight:bold;}
+#copyright {margin-left:10px;}
+#header {height:174px;text-align:right;}
+#pathdiv {margin:0 0 0 300px;height:15px;}
+#precontent {padding:0 10px 0 0;margin:0 0 0 300px;}
+#content {padding:10px 10px 10px 0;margin:0 0 0 300px;}
+
+#nav {position:absolute;left:0px;top:229px;width:300px;}
+
+#menucontainer {list-style:none;width:200px;padding:0px;margin:0 0 0 49px;}
+#menucontainer li {padding:4px 0 3px 0;border: 1px solid white;}
+#menucontainer li:hover {background-color:#e6ecff;border: 1px solid #c0ccf6;}
+#menucontainer a {color: #4f75bb;text-decoration:none;}
+#menucontainer a:hover {color:#4f75bb;text-decoration:none;}
+
+select {color:Black;height:20px;font:8pt Tahoma;}
+H1 {FONT-SIZE: 16px;COLOR: #11638b;text-align : left;}
+H2 {FONT-SIZE: 14px;COLOR: #11739b;}
+H3 {FONT-SIZE: 12px;COLOR: #11739b;}
+H4 {FONT-SIZE: 11px;COLOR: #11739b;}
+
+table.mainMenu
+{
+	background-color: #FFFFFF;
+	border:0px;
+	font-family: Tahoma, Verdana, Arial, MS Sans Serif;
+	font-size: 8pt;
+}
+td.Item
+{
+	background-color:#ffffff;
+	border: 1px solid #ffffff;
+	font-family: Tahoma, Verdana, Arial, MS Sans Serif;
+	font-size: 8pt;
+	color:#4f75bb;
+	padding: 1px, 0px, 1px, 5px;
+	
+}
+td.HoverItem
+{
+	background-color:#e6ecff;
+	border: 1px solid #c0ccf6;
+	font-family: Tahoma, Verdana, Arial, MS Sans Serif;
+	font-size: 8pt;
+	color: #4f75bb;
+	padding: 1px, 0px, 1px, 5px;
+}
+td.Item_Child
+{
+	background-color:#eef3ff;
+	border: 1px solid #eef3ff;
+	font-family: Tahoma, Verdana, Arial, MS Sans Serif;
+	font-size: 8pt;
+	color: #4f75bb;
+	padding: 1px, 0px, 1px, 5px;
+}
+td.Item_Active
+{
+	background-color:#a6c0ee;
+	border: 1px solid #91AAD9;
+	font-family: Tahoma, Verdana, Arial, MS Sans Serif;
+	font-size: 8pt;
+	color: #4f75bb;
+	padding: 1px, 0px, 1px, 5px;
+	width:172px;
+	height: 22px;
+}
+td.Item_Opened
+{
+	background-color:#bcd0ef;
+	border: 1px solid #bcd0ef;
+	font-family: Tahoma, Verdana, Arial, MS Sans Serif;
+	font-size: 8pt;
+	color: #4f75bb;
+	padding: 1px, 0px, 1px, 5px;
+}

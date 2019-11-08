@@ -1,0 +1,7 @@
+makecert.exe -sv testorcore.pvk -n "CN=CNIT" testorcore.cer
+cert2spc.exe testorcore.cer testorcore.spc
+pvk2pfx -pvk testorcore.pvk -pi password -spc testorcore.spc -pfx testorcore.pfx -po pasword -f
+
+
+
+http://www.pantaray.com/signcode.html

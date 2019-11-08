@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TestEditMaster.master.cs"
+    Inherits="CoreWebClient.TestEdit.TestEditMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Редактор тестов</title>
+    <link type="text/css" rel="stylesheet" href="../Style/testedit.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table id="header">
+        <tr>
+            <td style="padding-left: 10px;">
+                <asp:HyperLink runat="server" ID="hlHome" NavigateUrl="~/Default.aspx" Text="Локатор"
+                    Style="font-size: 2em;" />
+            </td>
+            <td style="text-align: right; padding-right: 10px; color: #ccc;">
+                <b>
+                    <asp:LoginName ID="LoginName" runat="server" />
+                    [&nbsp;<asp:LoginStatus ID="LoginStatus" runat="server" LogoutText="Выход" />
+                    ]</b>
+            </td>
+        </tr>
+    </table>
+    <table id="content">
+        <tr>
+            <td id="leftMenu">
+                <asp:HyperLink ID="hlUsers" runat="server" NavigateUrl="TestEdit.aspx" Text="Управление тестами" />
+                <hr />
+                <asp:HyperLink ID="hlDocuments" runat="server" NavigateUrl="~/Default.aspx" Text="Группы" />
+                <asp:HyperLink ID="hlEvents" runat="server" NavigateUrl="~/Default.aspx" Text="Пользователи" />
+                <hr />
+                <asp:HyperLink ID="hlLog" runat="server" NavigateUrl="~/Default.aspx" Text="Лог работы" />
+            </td>
+            <td id="mainContent">
+                <h3 id="contentHeader">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolderPartTitle" runat="server">
+                    </asp:ContentPlaceHolder>
+                </h3>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+    <div>
+    </div>
+    </form>
+</body>
+</html>

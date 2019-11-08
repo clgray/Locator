@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>$(CustomManifestCertificateThumbprint)</ManifestCertificateThumbprint>
+    <ManifestKeyFile>TestorCore.pfx</ManifestKeyFile>
+    <ApplicationVersion>1.0.0.$(CCNetNumericLabel)</ApplicationVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <Link>$(SolutionDir)\Configs\deploy\App.config</Link>
+    </None>
+  </ItemGroup>
+</Project>

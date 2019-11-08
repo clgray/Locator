@@ -1,0 +1,121 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DesktopLite.master.cs"
+    Inherits="CoreWebClient.DesktopLite" EnableViewState="false" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>testor.ru ::</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" rel="Stylesheet" href="Style/core01.css" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/Images/favicon.ico" />
+    <style type="text/css">
+        html
+        {
+            cursor: default;
+        }
+        TD
+        {
+            font-size: 16px;
+        }
+        TR
+        {
+            font-size: 16px;
+        }
+    </style>
+
+    <script type="text/javascript" src="JS/shortcut.js"></script>
+
+    <script type="text/javascript" src="JS/testingv2.js"></script>
+
+    <link type="text/css" href="js/css/smoothness/jquery-ui-1.7.1.custom.css" rel="Stylesheet" />
+    <link type="text/css" href="js/css/jquery.calculator.css" rel="Stylesheet" />
+
+    <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery-ui-1.7.1.custom.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.calculator.js"></script>
+
+    <script type="text/javascript">
+        function useValue(value, inst) {
+            try {
+                $("#defaultCalc").val(value);
+            } catch (err)
+            { }
+        }
+        $(function() {
+            $("#dialog").dialog({
+                bgiframe: true,
+                resizable: false,
+                height: 220,
+                width: 350,
+                modal: true,
+                autoOpen: false
+            });
+
+            $("#dialog").calculator({ onClose: useValue, layout: [
+            '_7_8_9_+' + $.calculator.SQRT + $.calculator.USE,
+            '_4_5_6_-' + $.calculator.INV,
+            '_1_2_3_*' + $.calculator.SQR,
+            '_0_.' + $.calculator.PLUS_MINUS + '_=_/' + $.calculator.ERASE]
+            });
+
+            document.getElementById("calcLink").onclick = function() {
+                $("#dialog").dialog('open');
+            };
+        });
+
+
+        function pressShortcut(kid) {
+            try {
+                $("#mainInputTable input:eq(" + kid + ")").attr("checked", !$("#mainInputTable input:eq(" + kid + ")").attr("checked"));
+            } catch (err)
+                { }
+        }
+
+        shortcut.add("shift+1", function() { pressShortcut(0); });
+        shortcut.add("shift+2", function() { pressShortcut(1); });
+        shortcut.add("shift+3", function() { pressShortcut(2); });
+        shortcut.add("shift+4", function() { pressShortcut(3); });
+        shortcut.add("shift+5", function() { pressShortcut(4); });
+        shortcut.add("shift+6", function() { pressShortcut(5); });
+        
+    </script>
+
+</head>
+<body onselectstart="return false;">
+    <div id="dialog" title="Калькулятор">
+        &nbsp;</div>
+    <form id="formMain" runat="server">
+    <div id="testingTitle" style="background-color: #7d9acb;">
+        &nbsp;Тест:&nbsp;<asp:Label ID="LabelTest" runat="server" Text="Label" />
+    </div>
+    <div style="margin: 10px;">
+        <asp:ScriptManager ID="ScriptManagerMain" runat="server" />
+        <asp:UpdatePanel ID="UpdatePanelMain" runat="server">
+            <ContentTemplate>
+                <asp:UpdateProgress ID="UpdateProgressMain" runat="server">
+                    <ProgressTemplate>
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/ajax-loader.gif" />
+                    </ProgressTemplate>
+                </asp:UpdateProgress>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
+    <table width="100%" style="border: 0px; border-collapse: collapse;" cellspacing="0">
+        <tr>
+            <td style="height: 1px; background-color: #7d9acb; padding: 0px; margin: 0px;">
+            </td>
+        </tr>
+    </table>
+    <div id="copyright">
+        <a href="#" id="calcLink">Калькулятор</a> | Система тестирования &laquo;Локатор&raquo;
+        вер.
+        <%=Cnit.Testor.Core.TestingSystem.LocatorVersion%>
+        Copyright © 2005–<%=DateTime.Now.Year %>. Все права защищены.<br />
+    </div>
+    </form>
+</body>
+</html>

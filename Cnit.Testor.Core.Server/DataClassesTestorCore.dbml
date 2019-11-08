@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Locator" Class="DataClassesTestorCoreDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLExpress;Initial Catalog=Locator;Integrated Security=True" SettingsObjectName="Cnit.Testor.Core.Server.Properties.Settings" SettingsPropertyName="LocatorConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CoreMasterParts" Member="CoreMasterParts">
+    <Type Name="CoreMasterPart">
+      <Column Name="MasterPartId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MasterTestId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PartTestId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QuestionsNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CoreTest_CoreMasterPart" Member="CoreTest" ThisKey="PartTestId" OtherKey="TestId" Type="CoreTest" IsForeignKey="true" />
+      <Association Name="CoreTest_CoreMasterPart1" Member="CoreTest1" ThisKey="MasterTestId" OtherKey="TestId" Type="CoreTest" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CoreRequirements" Member="CoreRequirements">
+    <Type Name="CoreRequirement">
+      <Column Name="RequirementId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TestId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Requirement" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CoreTest_CoreRequirement" Member="CoreTest" ThisKey="TestId" OtherKey="TestId" Type="CoreTest" IsForeignKey="true" />
+      <Association Name="CoreTest_CoreRequirement1" Member="CoreTest1" ThisKey="Requirement" OtherKey="TestId" Type="CoreTest" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CoreBLOBs" Member="CoreBLOBs">
+    <Type Name="CoreBLOB">
+      <Column Name="BLOBId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QuestionId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BLOBContent" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="CoreQuestion_CoreBLOB" Member="CoreQuestion" ThisKey="QuestionId" OtherKey="QuestionId" Type="CoreQuestion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TestGroups" Member="TestGroups">
+    <Type Name="TestGroup">
+      <Column Name="TestGroupId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TestId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CoreTest_TestGroup" Member="CoreTest" ThisKey="TestId" OtherKey="TestId" Type="CoreTest" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="SecondName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Login" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="UserRole" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Sex" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="StudNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AfinaId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="User_UserGroup" Member="UserGroups" ThisKey="UserId" OtherKey="UserId" Type="UserGroup" />
+      <Association Name="User_ActivationKey" Member="ActivationKeys" ThisKey="UserId" OtherKey="UserId" Type="ActivationKey" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TestSessionQuestions" Member="TestSessionQuestions">
+    <Type Name="TestSessionQuestion">
+      <Column Name="TestSessionQuestId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QuestionIndex" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="TestSessionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QuestionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Answer" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsRightAnswer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="CoreQuestion_TestSessionQuestion" Member="CoreQuestion" ThisKey="QuestionId" OtherKey="QuestionId" Type="CoreQuestion" IsForeignKey="true" />
+      <Association Name="TestSession_TestSessionQuestion" Member="TestSession" ThisKey="TestSessionId" OtherKey="TestSessionId" Type="TestSession" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserGroups" Member="UserGroups">
+    <Type Name="UserGroup">
+      <Column Name="UserGroupId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsAdministrator" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="UserGroup_GroupTree" Member="GroupTrees" ThisKey="GroupId" OtherKey="GroupId" Type="GroupTree" />
+      <Association Name="User_UserGroup" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupTree" Member="GroupTrees">
+    <Type Name="GroupTree">
+      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Association Name="UserGroup_GroupTree" Member="UserGroup" ThisKey="GroupId" OtherKey="GroupId" Type="UserGroup" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AnonymousUsers" Member="AnonymousUsers">
+    <Type Name="AnonymousUser">
+      <Column Name="AnonymousUserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SystemSettings" Member="SystemSettings">
+    <Type Name="SystemSetting">
+      <Column Name="PropertyId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PropertyName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PropertyValue" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ActivationKeys" Member="ActivationKeys">
+    <Type Name="ActivationKey">
+      <Column Name="ActivationKeyId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActivationKey" Member="ActivationKey1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="User_ActivationKey" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CoreAnswers" Member="CoreAnswers">
+    <Type Name="CoreAnswer">
+      <Column Name="AnswerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QuestionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Answer" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="IsTrue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AnswerMetadata" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="CoreQuestion_CoreAnswer" Member="CoreQuestion" ThisKey="QuestionId" OtherKey="QuestionId" Type="CoreQuestion" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CoreQuestions" Member="CoreQuestions">
+    <Type Name="CoreQuestion">
+      <Column Name="QuestionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TestId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QuestionType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="QuestionMark" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="QuestionMetadata" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="CoreQuestion_CoreBLOB" Member="CoreBLOBs" ThisKey="QuestionId" OtherKey="QuestionId" Type="CoreBLOB" />
+      <Association Name="CoreQuestion_TestSessionQuestion" Member="TestSessionQuestions" ThisKey="QuestionId" OtherKey="QuestionId" Type="TestSessionQuestion" />
+      <Association Name="CoreQuestion_CoreAnswer" Member="CoreAnswers" ThisKey="QuestionId" OtherKey="QuestionId" Type="CoreAnswer" />
+      <Association Name="CoreTest_CoreQuestion" Member="CoreTest" ThisKey="TestId" OtherKey="TestId" Type="CoreTest" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CoreTests" Member="CoreTests">
+    <Type Name="CoreTest">
+      <Column Name="TestId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TestName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="TestKey" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="QuestionsNumber" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="VariantsMode" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PassagesNumber" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="PassingScore" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TimeLimit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BeginTime" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="AllowAdmitQuestions" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ShowTestResult" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ShowDetailsTestResult" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ShowRightAnswersCount" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsMasterTest" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AdaptiveMode" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="CoreTest_CoreMasterPart" Member="CoreMasterParts" ThisKey="TestId" OtherKey="PartTestId" Type="CoreMasterPart" />
+      <Association Name="CoreTest_CoreMasterPart1" Member="CoreMasterParts1" ThisKey="TestId" OtherKey="MasterTestId" Type="CoreMasterPart" />
+      <Association Name="CoreTest_CoreRequirement" Member="CoreRequirements" ThisKey="TestId" OtherKey="TestId" Type="CoreRequirement" />
+      <Association Name="CoreTest_CoreRequirement1" Member="CoreRequirements1" ThisKey="TestId" OtherKey="Requirement" Type="CoreRequirement" />
+      <Association Name="CoreTest_TestGroup" Member="TestGroups" ThisKey="TestId" OtherKey="TestId" Type="TestGroup" />
+      <Association Name="CoreTest_CoreQuestion" Member="CoreQuestions" ThisKey="TestId" OtherKey="TestId" Type="CoreQuestion" />
+      <Association Name="CoreTest_TestSession" Member="TestSessions" ThisKey="TestId" OtherKey="TestId" Type="TestSession" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TestSessions" Member="TestSessions">
+    <Type Name="TestSession">
+      <Column Name="TestSessionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TestId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MaxScore" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Score" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="IsPassed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ClientIP" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="UniqId" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="AdditionalTime" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="TestSession_TestSessionQuestion" Member="TestSessionQuestions" ThisKey="TestSessionId" OtherKey="TestSessionId" Type="TestSessionQuestion" />
+      <Association Name="CoreTest_TestSession" Member="CoreTest" ThisKey="TestId" OtherKey="TestId" Type="CoreTest" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SystemEventsLog" Member="SystemEventsLogs">
+    <Type Name="SystemEventsLog">
+      <Column Name="EventId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EventCode" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Login" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="EventText" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.RemoveGroupTreeItem" Method="RemoveGroupTreeItem">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.RemoveTestTreeItem" Method="RemoveTestTreeItem">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.RenameGroupTreeItem" Method="RenameGroupTreeItem">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GroupNewName" Parameter="groupNewName" Type="System.String" DbType="VarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ReparentTestTreeItem" Method="ReparentTestTreeItem">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ItemNewParent" Parameter="itemNewParent" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ReparentGroupTreeItem" Method="ReparentGroupTreeItem">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ItemNewParent" Parameter="itemNewParent" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetUserGroups" Method="GetUserGroups">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetUserGroupsResult">
+      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="IsAdministrator" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AddTestTreeItem" Method="AddTestTreeItem">
+    <Parameter Name="ParentId" Parameter="parentId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NodeType" Parameter="nodeType" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="TestId" Parameter="testId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ItemOwner" Parameter="itemOwner" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTestRequirements" Method="GetTestRequirements">
+    <Parameter Name="TestId" Parameter="testId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetTestRequirementsResult">
+      <Column Name="Requirement" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NodeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TestName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.RenameTestTreeItem" Method="RenameTestTreeItem">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TestNewName" Parameter="testNewName" Type="System.String" DbType="VarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTestItemOwner" Method="GetTestItemOwner">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTestOwner" Method="GetTestOwner">
+    <Parameter Name="ItemId" Parameter="itemId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AddGroupTreeItem" Method="AddGroupTreeItem">
+    <Parameter Name="ParentId" Parameter="parentId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GroupName" Parameter="groupName" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="GroupCode" Parameter="groupCode" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetGroupIdByCode" Method="GetGroupIdByCode">
+    <Parameter Name="GroupCode" Parameter="groupCode" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetUserGroupTree" Method="GetUserGroupTree">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ParentId" Parameter="parentId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IsAdmin" Parameter="isAdmin" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Level" Parameter="level" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetUserGroupTreeResult">
+      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupNode" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="GroupName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetAppointedTests" Method="GetAppointedTests">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetAppointedTestsResult">
+      <Column Name="NodeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TestName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="PassedCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetTestTreeByLevel" Method="GetTestTreeByLevel">
+    <Parameter Name="ParentId" Parameter="parentId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Level" Parameter="level" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GetParents" Parameter="getParents" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="GetOnlyActive" Parameter="getOnlyActive" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="GetTestTreeByLevelResult">
+      <Column Name="NodeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NodeType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="TreeNode" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="TestId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TestName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ItemOwner" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TestTreeIsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SetTestTreeItemActivity" Method="SetTestTreeItemActivity">
+    <Parameter Name="NodeId" Parameter="nodeId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Activity" Parameter="activity" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -1,0 +1,102 @@
+﻿body
+{
+	margin: 0px;
+	padding: 0px;
+	background-color: #F9F9F9;
+}
+#header
+{
+	height: 46px;
+	background-color: #464646;
+	vertical-align: middle;
+	width: 100%;
+	color: White;
+	font-size: 1.2em;
+}
+#header a
+{
+	color: White;
+	text-decoration: none;
+}
+#header a:hover
+{
+	text-decoration: underline;
+}
+#content
+{
+	width: 100%;
+}
+#content tr td
+{
+	vertical-align: top;
+}
+#leftMenu
+{
+	width: 200px;
+}
+#leftMenu a
+{
+	display: block;
+	padding: 5px;
+	padding-left: 15px;
+	margin: 5px;
+	background: Red;
+	text-decoration: none;
+	color: #21759b;
+	background: #f1f1f1;
+	border: 1px solid;
+	border-color: #e3e3e3;
+}
+#leftMenu a:hover
+{
+	color: Red;
+	text-decoration: underline;
+}
+#leftMenu hr
+{
+	border: 1px solid;
+	border-color: #e3e3e3;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+#contentHeader
+{
+	font: italic 24px/35px Georgia, "Times New Roman" , "Bitstream Charter" , Times, serif;
+	margin-left: 5px;
+	margin-top: 10px;
+	margin-bottom: 7px;
+}
+#mainContent a
+{
+	text-decoration: none;
+	color: #21759b;
+}
+#mainContent a:hover
+{
+	text-decoration: none;
+	color: #d54e21;
+}
+button
+{
+	box-sizing: content-box;
+	border-bottom: 1px solid;
+	border-left: 1px solid;
+	padding-bottom: 2px;
+	line-height: 16px;
+	padding-left: 8px;
+	padding-right: 8px;
+	font-size: 11px !important;
+	border-top: 1px solid;
+	cursor: pointer;
+	border-right: 1px solid;
+	text-decoration: none;
+	padding-top: 2px;
+}
+.dataInput
+{
+	width: 250px;
+}
+.loginInput
+{
+	width: 100%;
+}

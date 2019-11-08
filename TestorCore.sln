@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWebClient", "CoreWebClient\CoreWebClient.csproj", "{E05A4C6D-3A64-4FF6-B175-292A6EBA300D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cnit.Testor.Core", "Cnit.Testor.Core\Cnit.Testor.Core.csproj", "{ED772AB7-45F2-4E40-86D6-448F57709E32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cnit.Testor.Core.UI", "Cnit.Testor.Core.UI\Cnit.Testor.Core.UI.csproj", "{E67F8285-CFBC-47B3-B6A3-68BA2A5BE468}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cnit.Testor.Core.HttpServer", "Cnit.Testor.Core.HttpServer\Cnit.Testor.Core.HttpServer.csproj", "{2D090524-F5F4-4FD4-9EB9-B0AFD953D756}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cnit.Testor.Core.Server", "Cnit.Testor.Core.Server\Cnit.Testor.Core.Server.csproj", "{67B1297A-C98D-4010-8607-E82866FED009}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locator", "Locator\Locator.csproj", "{1EC8C795-707E-4FE4-ACFD-732F24002584}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LocatorDB", "LocatorDB\LocatorDB.sqlproj", "{45881BAE-859D-4D2D-B5B4-B6D2A8CA8E4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E05A4C6D-3A64-4FF6-B175-292A6EBA300D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E05A4C6D-3A64-4FF6-B175-292A6EBA300D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E05A4C6D-3A64-4FF6-B175-292A6EBA300D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E05A4C6D-3A64-4FF6-B175-292A6EBA300D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED772AB7-45F2-4E40-86D6-448F57709E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED772AB7-45F2-4E40-86D6-448F57709E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED772AB7-45F2-4E40-86D6-448F57709E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED772AB7-45F2-4E40-86D6-448F57709E32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E67F8285-CFBC-47B3-B6A3-68BA2A5BE468}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E67F8285-CFBC-47B3-B6A3-68BA2A5BE468}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E67F8285-CFBC-47B3-B6A3-68BA2A5BE468}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E67F8285-CFBC-47B3-B6A3-68BA2A5BE468}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D090524-F5F4-4FD4-9EB9-B0AFD953D756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D090524-F5F4-4FD4-9EB9-B0AFD953D756}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D090524-F5F4-4FD4-9EB9-B0AFD953D756}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D090524-F5F4-4FD4-9EB9-B0AFD953D756}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67B1297A-C98D-4010-8607-E82866FED009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B1297A-C98D-4010-8607-E82866FED009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B1297A-C98D-4010-8607-E82866FED009}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B1297A-C98D-4010-8607-E82866FED009}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EC8C795-707E-4FE4-ACFD-732F24002584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EC8C795-707E-4FE4-ACFD-732F24002584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EC8C795-707E-4FE4-ACFD-732F24002584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EC8C795-707E-4FE4-ACFD-732F24002584}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45881BAE-859D-4D2D-B5B4-B6D2A8CA8E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45881BAE-859D-4D2D-B5B4-B6D2A8CA8E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45881BAE-859D-4D2D-B5B4-B6D2A8CA8E4D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{45881BAE-859D-4D2D-B5B4-B6D2A8CA8E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45881BAE-859D-4D2D-B5B4-B6D2A8CA8E4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45881BAE-859D-4D2D-B5B4-B6D2A8CA8E4D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {813B4204-DDFA-4288-9A2E-3C5EC26A23CB}
+	EndGlobalSection
+EndGlobal

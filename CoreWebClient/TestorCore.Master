@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TestorCore.master.cs"
+    Inherits="CoreWebClient.TestorCore" %>
+
+<%@ Register Src="Controls/TestingMenu.ascx" TagName="TestingMenu" TagPrefix="uc" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Локатор :: On-line тестирование</title>
+    <link type="text/css" rel="Stylesheet" href="Style/core01.css" />
+    <link rel="shortcut icon" href="/Images/favicon.ico" />
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+    <form id="MainForm" runat="server">
+    <table width="100%" style="border: 0px; border-collapse: collapse;" cellspacing="0">
+        <tr>
+            <td>
+            </td>
+            <td id="header">
+                <a href="/">
+                    <img src="/Images/logo2010.png" alt="TestorCore" id="headerimg" /></a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="height: 1px; background-color: #7d9acb; padding: 0px; margin: 0px;">
+            </td>
+        </tr>
+    </table>
+    <div id="title">
+        On-line тестирование
+        <asp:Label runat="server" ID="userName" /></div>
+    <!--Панель меню-->
+    <div id="nav">
+        <uc:TestingMenu runat="server" />
+    </div>
+    <!--Панель навигации-->
+    <div id="pathdiv">
+        <asp:Panel ID="PanelPath" runat="server" />
+    </div>
+    <!--Панель сообщения для анонимного пользователя-->
+    <div id="precontent">
+        <asp:LoginView runat="server" ID="helloPanel">
+            <AnonymousTemplate>
+                <h3>
+                    Уважаемый Гость нашего портала!</h3>
+                <p class="anp">
+                    В данный момент, Вы не являетесь авторизованным пользователем testor.ru и Вам доступны
+                    только ознакомительные тесты. Указав логин и пароль в разделе <a href="/Login.aspx?ReturnUrl=Default.aspx">
+                        «Авторизация»</a> или зарегистрировавшись <a href="Register.aspx">«Регистрация нового
+                            пользователя»</a> (что займёт у Вас не больше минуты) Вы получите доступ
+                    к значительно большому числу тестов. Кроме того, у Вас появится возможность пользоваться
+                    личным кабинетом (смена пароля, изменение группы, расписание тестирования, учебные
+                    план-графики, результаты тестирования), получать сертификаты о прохождении тестирования
+                    и обучения, и многое другое.
+                </p>
+            </AnonymousTemplate>
+        </asp:LoginView>
+    </div>
+    <!--Content панель-->
+    <div id="content">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderContent" runat="server" />
+    </div>
+    <table width="100%" style="border: 0px; border-collapse: collapse;" cellspacing="0">
+        <tr>
+            <td style="height: 1px; background-color: #7d9acb; padding: 0px; margin: 0px;">
+            </td>
+        </tr>
+    </table>
+    <div id="copyright">
+        Система тестирования &laquo;Локатор&raquo; вер.
+        <%=Cnit.Testor.Core.TestingSystem.LocatorVersion%>
+        Copyright © 2005–<%=DateTime.Now.Year %> . Все права защищены.<br />
+    </div>
+    </form>
+</body>
+</html>
